@@ -209,7 +209,7 @@ nav ul li a:hover {
 .content {
     /*margin-top: 50px;
     flex: 1 0 100vw;*/
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
