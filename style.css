@@ -1,3 +1,7 @@
+main#scroll-container {
+    position: relative;
+}
+
 /* Estilos globales*/
 * {
     margin: 0;
@@ -31,25 +35,30 @@
     font-style: normal;
 }
 
-p, a, .poppins-medium {
+p,
+a,
+.poppins-medium {
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-style: normal;
     font-size: 1.2rem;
 }
 
-h2, h3, .poppins-semibold {
+h2,
+h3,
+.poppins-semibold {
     font-family: "Poppins", sans-serif;
     font-weight: 600;
     font-style: normal;
     font-size: 2.5rem;
 }
 
-h3{
+h3 {
     font-size: 1.8rem;
 }
 
-h1, .poppins-bold {
+h1,
+.poppins-bold {
     font-family: "Poppins", sans-serif;
     font-weight: 700;
     font-style: normal;
@@ -147,7 +156,7 @@ header {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-a{
+a {
     text-decoration: none;
 }
 
@@ -206,6 +215,11 @@ nav ul li a:hover {
 }
 */
 
+.wrapper {
+    position: relative;
+    width: 100%;
+}
+
 .content {
     /*margin-top: 50px;
     flex: 1 0 100vw;*/
@@ -218,10 +232,12 @@ nav ul li a:hover {
 }
 
 .triangle-container {
-    position: relative;
-    height: 100vh;
+    position: absolute;
     overflow: hidden;
+    width: 100%;
+    height: 100%;
     background: #61D7B8;
+    z-index: 0;
 }
 
 .triangle {
@@ -292,30 +308,33 @@ nav ul li a:hover {
 
 /* About Me */
 
-#aboutMe{
+#aboutMe {
+    flex-direction: column;
     position: relative;
     z-index: 1;
-    padding-top: 150px;
+    padding: 150px 100px 100px 100px;
     gap: 5rem;
 }
 
-#aboutMe div{
-    width: 50%;
+#aboutMe-container {
+    display: flex;
+    gap: 5rem;
+    align-items: center;
 }
 
-#description{
+#description {
     margin-top: 1rem;
+    max-width: 1100px;
 }
 
-#rol{
+.rol {
     color: #7E14A4;
 }
 
-#contactMe-container{
+#contactMe-container {
     background: white;
     border-radius: 2rem;
     padding: 1.8rem;
-    max-width: 400px;
 }
 
 #contactMe {
@@ -332,11 +351,11 @@ nav ul li a:hover {
     gap: 1.8rem;
 }
 
-.contact-svg{
+.contact-svg {
     fill: #7E14A4;
 }
 
-.rrss li a:hover .contact-svg{
+.rrss li a:hover .contact-svg {
     fill: #61D7B8;
 }
 
@@ -375,10 +394,12 @@ nav ul li a:hover {
     justify-content: center;
 }
 
-.skills-cards-container > div {
-    flex: 1 1 calc(33.333% - 2rem); /* 33.333% para 3 elementos por fila, menos el gap */
+.skills-cards-container>div {
+    flex: 1 1 calc(33.333% - 2rem);
+    /* 33.333% para 3 elementos por fila, menos el gap */
     box-sizing: border-box;
-    max-width: calc(33.333% - 2rem); /* Asegura que no se expandan más allá de un tercio */
+    max-width: calc(33.333% - 2rem);
+    /* Asegura que no se expandan más allá de un tercio */
 }
 
 /* Projects */
@@ -394,7 +415,7 @@ nav ul li a:hover {
     margin-bottom: 2rem;
 }
 
-#projects-container{
+#projects-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -402,33 +423,72 @@ nav ul li a:hover {
     padding: 0 50px;
 }
 
-#projects-container > div {
-    flex: 1 1 calc(33.333% - 2rem); /* 33.333% para 3 elementos por fila, menos el gap */
+#projects-container>div {
+    flex: 1 1 calc(50% - 2.5rem);
+    /* 50% para 2 elementos por fila, menos el gap */
     box-sizing: border-box;
-    max-width: calc(33.333% - 2rem); /* Asegura que no se expandan más allá de un tercio */
+    max-width: calc(40% - 2.5rem);
+    /* Asegura que no se expandan más allá de la mitad */
 }
 
 #projects-container div {
     justify-content: center;
-    align-items: center;
     width: 100%;
 }
 
+
 .project-card {
-    background: #7E14A4;
-    border-radius: 1rem;
-    padding: 1.8rem;
-    color: white;
-    height: 400px;
+    background: #fff;
+    border-radius: 1.5rem;
+    padding: 1.3rem 1.2rem 1.1rem 1.2rem;
+    color: #7E14A4;
+    box-shadow: 0 6px 24px 0 rgba(126, 20, 164, 0.10), 0 1.5px 6px 0 rgba(97, 215, 184, 0.08);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.18s cubic-bezier(.4, 0, .2, 1), box-shadow 0.18s cubic-bezier(.4, 0, .2, 1);
+}
+
+.project-card:hover {
+    transform: translateY(-8px) scale(1.025);
+    box-shadow: 0 12px 32px 0 rgba(126, 20, 164, 0.16), 0 3px 12px 0 rgba(97, 215, 184, 0.12);
 }
 
 .project-card a {
-    color: white;
+    color: #7E14A4;
+    text-decoration: none;
+    font-weight: 600;
 }
 
-.project-card img{
+.project-card img {
     width: 100%;
-    border-radius: 0.5rem;
+    max-height: 300px;
+    min-height: 130px;
+    object-fit: cover;
+    border-radius: 1rem;
+    margin-bottom: 0.8rem;
+    box-shadow: 0 2px 12px 0 rgba(126, 20, 164, 0.07);
+    align-self: center;
+}
+
+.project-card h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #7E14A4;
+    text-align: left;
+}
+
+.project-card p,
+.project-card small {
+    color: #7E14A4;
+    text-align: left;
+    margin: 0 0 0.5rem 0;
+    font-size: 1.08rem;
+}
+
+.project-card small {
+    opacity: 0.7;
+    font-size: 0.98rem;
 }
 
 /* Education */
@@ -449,4 +509,3 @@ nav ul li a:hover {
 .education-container {
     width: 80%;
 }
-
